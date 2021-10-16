@@ -11,6 +11,7 @@ Features
 - Realtime display.
 - Maximum time is 9 minutes and 59 seconds.
 - LED activation when timer reaches 0.
+- 
 --------------------
 Required Materials
 --------------------
@@ -26,39 +27,34 @@ Required Materials
 --------------------
 Resources and References
 --------------------
-
+- UM2179 User Manual: https://www.st.com/resource/en/user_manual/dm00368330-stm32-nucleo-144-boards-mb1312-stmicroelectronics.pdf. 
+- RM0432 Reference Manual: https://www.st.com/resource/en/reference_manual/dm00310109-stm32l4-series-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+- LCD Manual: https://learn-us-east-1-prod-fleet02-xythos.content.blackboardcdn.com/5e00ea752296c/10911180?X-Blackboard-Expiration=1634364000000&X-Blackboard-Signature=MOnja6ZGfmHtNs46fE12cbxFgsWLDdX4ZfLcV9TC9Es%3D&X-Blackboard-Client-Id=100310&response-cache-control=private%2C%20max-age%3D21600&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27JDH_1804_Datasheet.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211016T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Credential=AKIAZH6WM4PL5SJBSTP6%2F20211016%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6fa8d9a1bdf470eda9395760ffff2ab2ed7a58c10a191064bf3342ddedc1d5ee
 
 --------------------
 Getting Started
 --------------------
-Connect the Nucleo to a computer with a USB A to Micro USB B cable. Setup a power and ground connection to the breadboard. Connect the 4x4 keypad to the corresponding pins on the Nucleo. Next set up the LCD display by connecting GND, VCC,SDA and SCL to the correct positions. More detailed information on pins and connections are detailed in the documentation
+Connect the Nucleo to a computer with a USB A to Micro USB B cable. Setup a power and ground connection to the breadboard. Connect the 4x4 keypad to the corresponding pins on the Nucleo. Next set up the LCD display by connecting GND, VCC,SDA and SCL to the correct positions. More detailed information on pins and connections are detailed in the pdf documentation. 
 
 --------------------
-p1_code_provided.cpp:
+CSE321_project2_rchen56_main.cpp
 --------------------
- 
-This file has lots of things. There is a os typle tool used to create periodic events with a periepherial. The name of the file and the contents in here will be entirely updated.
- 
-This is totally not bare metal since there are some cool tools used. Those tools instantiate with a finite reference but gots their unique object created. 
+ This file contains the code that drives the timer. 
 
 
 ----------
-Things Declared
+Declarations
 ----------
-Some variables, functions, objects, and APIs are used to make tyhings work. 
-
-There are like 8 of these plus that header .h file.
-
+void ISR_Button(void): 
+InterruptIn col1 - 4
+CSE321_LCD LCD
 ----------
 API and Built In Elements Used
 ----------
 - 1802.cpp
 - 1802.h
 - mbed.h
--
-----------
-Custom Functions
-----------
+
 
 
 
