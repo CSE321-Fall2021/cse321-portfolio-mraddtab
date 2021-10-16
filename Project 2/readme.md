@@ -2,6 +2,7 @@
 About
 -------------------
 Author: Ronald Chen
+
 Project Description: This project will create a user configure timer utilizing an LCD, Nucleo, and 4x4 Keypad.  
 
 --------------------
