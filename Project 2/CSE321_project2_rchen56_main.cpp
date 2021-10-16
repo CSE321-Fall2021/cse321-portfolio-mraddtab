@@ -1,3 +1,24 @@
+
+/*
+* File: CSE321_project1_rchen56_main.cpp
+*
+* Author: Ronald Chen (rchen56@buffalo.edu)
+* Date: Oct 14, 2021
+* Course: CSE321
+* Required Materials: Nucleo L4R5ZIucleo L4R5ZI, Solderless Breadboard, Jumper wires, 1802 LCD display, 
+*                     USB A to Micro USB B cable, 4 LEDs, Resistors, 4x4 Keypad
+*                    
+* Inputs: Keypad buttons
+*
+* Outputs: Time displayed on LCD, blinking external LEDs.
+*
+*
+* Summary of File: 
+*               This file contains the code that will drive the keypad and LCD display
+*
+*
+*/
+
 #include "mbed.h"
 #include  "1802.h"
 void isr_0(void);
