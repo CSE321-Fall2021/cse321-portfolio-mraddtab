@@ -42,15 +42,17 @@ CSE321_project2_rchen56_main.cpp
 --------------------
  This file contains the code that drives the timer. 
 
-
 ----------
 Declarations
 ----------
 void ISR_Button(void): 
 
 InterruptIn col1(PC_8);
+
 InterruptIn col2(PC_9);
+
 InterruptIn col3(PC_10);
+
 InterruptIn col4(PC_11);
 CSE321_LCD LCD
 ----------
