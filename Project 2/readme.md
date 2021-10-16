@@ -54,7 +54,8 @@ InterruptIn col2(PC_9);
 InterruptIn col3(PC_10);
 
 InterruptIn col4(PC_11);
-CSE321_LCD LCD
+
+CSE321_LCD LCD(16,2,PB_13,PB_12);
 ----------
 API and Built In Elements Used
 ----------
