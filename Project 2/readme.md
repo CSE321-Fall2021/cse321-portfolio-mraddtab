@@ -12,7 +12,7 @@ Features
 - Realtime display.
 - Maximum time is 9 minutes and 59 seconds.
 - LED activation when timer reaches 0.
-- 
+
 --------------------
 Required Materials
 --------------------
@@ -59,7 +59,4 @@ API and Built In Elements Used
 - 1802.cpp
 - 1802.h
 - mbed.h
-
-
-
 
