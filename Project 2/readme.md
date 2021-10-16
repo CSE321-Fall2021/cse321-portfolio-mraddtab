@@ -19,7 +19,7 @@ Required Materials
 - Nucleo L4R5ZI
 - Solderless Breadboard
 - Jumper wires
-- 1802 LCD displayer
+- 1802 LCD display
 - USB A to Micro USB B cable
 - 4 LEDs
 - 4x4 Keypad
