@@ -30,7 +30,7 @@
 */
 
 #include "mbed.h"
-#include  "1802.h"
+#include  "CSE321_project2_rchen56_LCD.h"
 #include <algorithm>
 #include <cstdio>
 #include <ctime>

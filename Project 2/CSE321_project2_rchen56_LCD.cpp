@@ -1,4 +1,4 @@
-#include "1802.h"
+#include "CSE321_project2_rchen56_LCD.h"
 #include "mbed.h"
 
 // modified from https://os.mbed.com/users/Yar/code/CSE321_LCD_for_Nucleo/
