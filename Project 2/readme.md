@@ -3,7 +3,7 @@ About
 -------------------
 Author: Ronald Chen
 
-Project Description: This project will create a user configure timer utilizing an LCD, Nucleo, and 4x4 Keypad.  
+Project Description: The goal of this project is create a user-configurable timer through the combinaion of software and hardware. The user will be able to input a time up to a total of 9 minutes and 59 seconds. The user may interact with the system through a 4x4 keypad connected to a NUCLEO-L4R5ZI.  
 
 --------------------
 Features
@@ -35,7 +35,31 @@ Resources and References
 --------------------
 Getting Started
 --------------------
-Connect the Nucleo to a computer with a USB A to Micro USB B cable. Setup a power and ground connection to the breadboard. Connect the 4x4 keypad to the corresponding pins on the Nucleo. Next set up the LCD display by connecting GND, VCC,SDA and SCL to the correct positions. More detailed information on pins and connections are detailed in the pdf documentation. 
+Connect the Nucleo to a computer with a USB A to Micro USB B cable. Setup a power and ground connection to the breadboard. Connect the external peripherals to the correct pins on the Nucleo-L4R5ZI with resistors and wires.
+
+Keypad:
+ Column 1: PC_6
+ Column 2: PB_15
+ Column 3: PB_13
+ Column 4: PB_12
+ Row 5: PC_12   
+ Row 6: PD_2
+ Row 7: PF_3
+ Row 8: PF_5
+ 
+LCD:
+ VCC: 3.3V
+ GND: GND
+ SDA: PB_9
+ SCL: PB_8
+
+LEDs:
+ Blue: PA_3
+ Green: PC_0
+ Red:  PC_3
+ White: PC_1
+
+More detailed information on pins and connections are detailed in the pdf documentation. 
 
 --------------------
 CSE321_project2_rchen56_main.cpp
