@@ -3,7 +3,7 @@ About
 -------------------
 Author: Ronald Chen
 
-Project Description: The goal of this project is create a user-configurable timer through the combinaion of software and hardware. The user will be able to input a time up to a total of 9 minutes and 59 seconds. The user may interact with the system through a 4x4 keypad connected to a NUCLEO-L4R5ZI.  
+Project Description: The goal of this project is create a user-configurable timer through the combinaion of software and hardware. The user will be able to input a time up to a total of 9 minutes and 59 seconds. The user may interact with the system through a 4x4 keypad connected to a NUCLEO-L4R5ZI. The remaining time is displayed on a 16x2 LCD display, that updates the time remmaining in real time. The user may pause the timer in this state as well, or input a new time. Once the countdown is complete the LCD will display "Times Up!" followed by the flashing of all four external LEDs.
 
 --------------------
 Features
@@ -69,17 +69,78 @@ CSE321_project2_rchen56_main.cpp
 ----------
 Declarations
 ----------
-void ISR_Button(void): 
+void isr_0(void);
+void isr_1(void);
+void isr_2(void);
+void isr_3(void);
+void isr_4(void);
+void isr_5(void);
+void isr_6(void);
+void isr_7(void);
+void isr_8(void);
+void isr_9(void);
+void isr_a(void);
+void isr_b(void);
+void isr_d(void);
+void col1_press(void);
+void col2_press(void);
+void col3_press(void);
+void col4_press(void);
 
-InterruptIn col1(PC_8);
+InterruptIn col1(PC_6,PullDown);
+InterruptIn col2(PB_15,PullDown);
+InterruptIn col3(PB_13,PullDown);
+InterruptIn col4(PB_12,PullDown);
 
-InterruptIn col2(PC_9);
+int row = 5;
+bool inputting =true;
+bool counting = false;
+bool paused = false;
+bool times_up = false;
 
-InterruptIn col3(PC_10);
+bool inputting_minutes;
+bool inputting_sec10;
+bool inputting_sec1;
 
-InterruptIn col4(PC_11);
+int minutes;
+int sec10;
+int sec1;
 
-CSE321_LCD LCD(16,2,PB_13,PB_12);
+char zero = '0';
+char one = '1';
+char two = '2';
+char three = '3';
+char four = '4';
+char five = '5';
+char six = '6';
+char seven = '7';
+char eight = '8';
+char nine = '9';
+char colon = ':';
+char underscore = '_';
+
+char *zeroPtr = &zero;
+char *onePtr =  &one;
+char *twoPtr = &two;
+char *threePtr = &three;
+char *fourPtr = &four;
+char *fivePtr = &five;
+char *sixPtr = &six;
+char *sevenPtr = &seven;
+char *eightPtr = &eight;
+char *ninePtr = &nine;
+char *colonPtr = &colon;
+char *minutes_str = &underscore;
+char *sec10_str = &underscore;
+char *sec1_str = &underscore;
+
+void count(void);
+void pause(void);
+void input_minutes();
+void input_sec10();
+void input_sec1();
+
+CSE321_LCD LCD(16,2,LCD_5x8DOTS,PB_9,PB_8);
 
 ----------
 API and Built In Elements Used
