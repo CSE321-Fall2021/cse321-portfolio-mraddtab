@@ -269,11 +269,16 @@ void col3_press(void){
 }
 
 /*************
-Function Name: 
+Function Name: col4_press
 
-Parameters 
+Summary: ISR For keypad inputs in column 2
+         Blink blue LED when digit entered
+               | Row 6 | 7 Pressed | 
+               | Row 7 | 4 Pressed |     
+               | Row 8 | 1 Pressed | 
+Parameters: Keypad press in column 4.
 
-Return: None
+Return: Void.
 **************/
 void col4_press(void){
    if(inputting){
@@ -289,7 +294,23 @@ void col4_press(void){
     }
 }
 
+/*************
+Function Names: isr_(0-9)
+                
+Summary: These functions are called when a digit is entered
+         in the Inputting time state. They will update the 
+         state of which digit is being entered (minutes/seconds)
+         and activate the blue LED
 
+Parameters: 0-9 is pressed in the inputting time state.
+
+Return: Activates the blue LED and value of minutes/seconds.
+
+Description: This function updates the counter, the state
+             of the digit being entered as well as activates
+             the blue LED.
+            
+**************/
 void isr_0(void){
     GPIOA->ODR |=0x8;
     wait_us(5000);
@@ -546,7 +567,22 @@ void isr_9(void){
     }  
 }
 
+/*************
+Function Names: input_minutes
+                input_sec10()
+                void input_sec1()
+                
+Summary: These functions are called when a digit is entered
+         in the Inputting time state.They will update the LCD
+         accordingly.
 
+Parameters: 0-9 is pressed in the inputting time state.
+
+Return: Updates the LCD.
+
+Description: This function updates the LCD accordingly
+             to the digit that was entered.
+**************/
 void count(){
         LCD.clear();
         LCD.setCursor(1,0);
@@ -647,6 +683,22 @@ void count(){
         }
 }
 
+/*************
+Function Names: input_minutes
+                input_sec10()
+                void input_sec1()
+                
+Summary: These functions are called when a digit is entered
+         in the Inputting time state.They will update the LCD
+         accordingly.
+
+Parameters: 0-9 is pressed in the inputting time state.
+
+Return: Updates the LCD.
+
+Description: This function updates the LCD accordingly
+             to the digit that was entered.
+**************/
 void input_minutes(){
     LCD.clear();
     LCD.setCursor(3, 0);
@@ -680,6 +732,19 @@ void input_sec1(){
     LCD.print(sec1_str);
 }
 
+/*************
+Function Name: isr_a()
+
+Summary: Changes state to counting
+
+Parameters: A Pressed in Inputting Time state.
+
+Return: Activate green LED, change state to counting.
+
+Description: This function changes the state of the program
+             to the "counting stage" and turns on the Green LED.
+             it also turns off the red LED.
+**************/
 void isr_a(){
     if(!counting && !times_up && !(minutes_str == &underscore || sec10_str == &underscore || sec1_str == &underscore)){
         counting = true;
@@ -694,6 +759,20 @@ void isr_a(){
         }
     }
 }
+
+/*************
+Function Name: isr_b()
+
+Summary: Activate red LED and change state
+
+Parameters: B Pressed in Counting
+
+Return: Sets counting to false and paused to true, activates
+        red LED
+
+Description: This function modifies the state as well as activates
+              the red LED.
+**************/
 void isr_b(){
     if(counting){
         counting = false;
@@ -702,6 +781,22 @@ void isr_b(){
         GPIOC->ODR&=~(0x1);
     }
 }
+
+
+/*************
+Function Name: isr_d()
+
+Summary: Transition to inputting time.
+
+Parameters: D Pressed in Counting/Paused/Times Up state.
+
+Return: Transition to Inputting Time state, activate
+        white LED.
+
+Description: This function is callable in any possible
+              state except itself. It will activate the
+              white LED, and reset the time to be empty.
+**************/
 void isr_d(){
     inputting = true;
     inputting_minutes = true;
@@ -727,6 +822,19 @@ void isr_d(){
     }
 }
 
+/*************
+Function Name: pause()
+
+Summary: Pauses the Timer
+
+Parameters: B Pressed in Counting state.
+
+Return: Transition to Paused state.
+
+Description: This function pauses the timer 
+             when B is pressed during the counting
+             stage.
+**************/
 void pause(){
     LCD.clear();
     LCD.setCursor(1,0);
