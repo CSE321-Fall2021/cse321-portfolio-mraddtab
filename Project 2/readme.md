@@ -65,6 +65,14 @@ More detailed information on pins and connections are detailed in the pdf docume
 CSE321_project2_rchen56_main.cpp
 --------------------
  This file contains the code that drives the timer. 
+ --------------------
+CSE321_project2_rchen56_LCD.cpp
+--------------------
+This file contains the functions for the LCD.
+--------------------
+CSE321_project2_rchen56_LCD.h
+--------------------
+This file is the header file for the LCD.
 
 ----------
 Declarations
@@ -145,7 +153,11 @@ CSE321_LCD LCD(16,2,LCD_5x8DOTS,PB_9,PB_8);
 ----------
 API and Built In Elements Used
 ----------
-- 1802.cpp
-- 1802.h
-- mbed.h
+#include "mbed.h"
+#include  "CSE321_project2_rchen56_LCD.h"
+#include <algorithm>
+#include <cstdio>
+#include <ctime>
+#include <iterator>
+#include <string>
 
