@@ -62,19 +62,17 @@ LEDs:
 More detailed information on pins and connections are detailed in the pdf documentation. 
 
 --------------------
-CSE321_project2_rchen56_main.cpp
+Additional Files
 --------------------
- This file contains the code that drives the timer. 
- --------------------
-CSE321_project2_rchen56_LCD.cpp
---------------------
-This file contains the functions for the LCD.
---------------------
-CSE321_project2_rchen56_LCD.h
---------------------
-This file is the header file for the LCD.
+1. CSE321_project2_rchen56_main.cpp
+     - This file contains the code that drives the timer. 
 
-----------
+CSE321_project2_rchen56_LCD.cpp
+     - This file contains the functions for the LCD.
+
+CSE321_project2_rchen56_LCD.h
+     - This file is the header file for the LCD.
+
 Declarations
 ----------
 void isr_0(void);
