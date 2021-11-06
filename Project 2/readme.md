@@ -151,11 +151,11 @@ CSE321_LCD LCD(16,2,LCD_5x8DOTS,PB_9,PB_8);
 ----------
 API and Built In Elements Used
 ----------
-#include "mbed.h"
-#include  "CSE321_project2_rchen56_LCD.h"
-#include <algorithm>
-#include <cstdio>
-#include <ctime>
-#include <iterator>
-#include <string>
+1. "mbed.h"
+2. "CSE321_project2_rchen56_LCD.h"
+3. <algorithm>
+4. <cstdio>
+5. <ctime>
+6. <iterator>
+7. <string>
 
