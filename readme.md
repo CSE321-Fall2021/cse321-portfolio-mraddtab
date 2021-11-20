@@ -12,4 +12,4 @@ This project aims to create a user configurable timer by combining software and 
 
 Project 3: Humidity Alarm
 =====
-This project aims to create a "Humidity Alarm", by once again combining software and hardware. The hardware componenets also include a Nucleo-LR45ZI, DHT11 sensor, buzzer,  16x2 LCD display, solderless breadboard, jumper wires, resistors, and a micro USB-A to micro USB-B cable. The DHT11 will monitor the humidity levels of the home, and display it on the LCD. When humidity levels reach a harmful level, the buzzer will sound until levels return to normal or the user manually mutes it.
+This project aims to create a "Humidity Alarm", by once again combining software and hardware. The hardware componenets include a Nucleo-LR45ZI, DHT11 sensor, buzzer,  16x2 LCD display, solderless breadboard, jumper wires, resistors, and a micro USB-A to micro USB-B cable. The DHT11 will monitor the humidity levels of the home, and display it on the LCD. When humidity levels reach a harmful level, the buzzer will sound until levels return to normal or the user manually mutes it. The software is written in C++, on the Mbed OS. 
