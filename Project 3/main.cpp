@@ -150,7 +150,10 @@ void output(){
             if(state == "Harmful" && muted == false){
                 GPIOB->ODR &=~(0x8000);
             }
-            else if(state == "Fair" || state == "Ideal" || (state == "Harmful" && muted == true)){
+            // else if((state == "Harmful" && muted == true)){
+            //     GPIOB->ODR |= 0x8000;
+            // }
+            else if(state == "Fair" || state == "Ideal" ){
                 GPIOB->ODR |= 0x8000;
                 mux.lock();
                 muted = false;
@@ -173,6 +176,7 @@ void mute(){
         mute_pressed.disable_irq();
         osDelay(500);
         if(state == "Harmful" && muted == false){
+            GPIOB->ODR &=~(0x8000);
             muted = true;
         }
         osDelay(500);
