@@ -77,6 +77,7 @@ int main()
 
     t_sense.start(sense);  
     t_display.start(output);
+    t_audio.start(audio);
     mute_pressed.rise(mute);
     
 }
@@ -146,19 +147,7 @@ void output(){
             LCD.setCursor(0, 2);
             LCD.print(state_const);
 
-            //Buzzer control
-            if(state == "Harmful" && muted == false){
-                GPIOB->ODR &=~(0x8000);
-            }
-            // else if((state == "Harmful" && muted == true)){
-            //     GPIOB->ODR |= 0x8000;
-            // }
-            else if(state == "Fair" || state == "Ideal" ){
-                GPIOB->ODR |= 0x8000;
-                mux.lock();
-                muted = false;
-                mux.unlock();
-            }
+           
             Watchdog::get_instance().kick();
         }   
 }
@@ -183,4 +172,21 @@ void mute(){
         mute_pressed.enable_irq();
 }
 
+void audio(){
+    while(true){
+         //Buzzer control
+            if(state == "Harmful" && muted == false){
+                GPIOB->ODR &=~(0x8000);
+            }
+            else if((state == "Harmful" && muted == true)){
+                GPIOB->ODR |= 0x8000;
+            }
+            else if(state == "Fair" || state == "Ideal" ){
+                GPIOB->ODR |= 0x8000;
+                mux.lock();
+                muted = false;
+                mux.unlock();
+            }
+    }
+}
 
