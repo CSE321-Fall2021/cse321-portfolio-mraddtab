@@ -44,8 +44,28 @@ Connect the Nucleo to a computer with a USB A to Micro USB B cable. Setup a powe
 --------------------
 Additional Files
 --------------------
-
+- 1802.cpp
+- 1802.h
+- DHT11.cpp
+- DHT11.h
 ----------
 Declarations
 ----------
-
+- int sense_interval = 2100;              
+- const uint32_t watchdog_timeout = 2200;       
+- Thread t_sense;                         
+- Thread t_display;                       
+- Thread t_audio;                         
+- InterruptIn mute_pressed(PC_13);        
+- void sense();
+- void display();
+- void audio();
+- void mute();
+- void initialize_watchdog(int);
+- Queue<int,1> humidityQue;
+- Queue<string,1> display_stateQue;
+- DHT11 sensor(PC_6);
+- CSE321_LCD LCD(16,2,LCD_5x10DOTS,PB_9,PB_8);
+- bool muted;
+- string state;
+- int humidity;
